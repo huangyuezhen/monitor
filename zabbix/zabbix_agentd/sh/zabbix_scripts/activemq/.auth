@@ -1,0 +1,7 @@
+USERNAME=admin
+PASSWORD=admin
+HOSTIP=127.0.0.1
+CONF=/data/conf/zabbix-agentd/zabbix_agentd.conf
+LOGLEVEL=DEBUG
+LOGFILE=/data/sh/zabbix_scripts/activemq/activemq_zabbix.log
+PORT=8161

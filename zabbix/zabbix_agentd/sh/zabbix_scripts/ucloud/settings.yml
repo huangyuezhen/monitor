@@ -1,0 +1,36 @@
+udb :
+  - DiskUsage
+  - CPUUtilization
+  - MemSize
+  - ConnectionCount
+  - QPS
+  - DeleteQPS
+  - InsertQPS
+  - SelectQPS
+  - UpdateQPS
+  - SlaveDelay
+  - MemUsage
+  - ExpensiveQuery
+  - SynchronizationError
+  - BackupFailed
+  - PingErrorCount
+  - ReplaceQPS
+  - IOOps
+  - IO
+  - AbReboot
+  - CoreFailure
+  - CPUCoreUsed
+  - DumpFailure
+  - SandboxMemory
+  - SandboxCache
+  - ServiceAvailability
+  - TPS
+  - ConnectionMaxFlag
+
+ucloud:
+    # account monitor@yunnex.com
+    base_url: https://api.ucloud.cn
+    public_key: ygsmZz5Vnxjs8Z1vnzU7TUc+TTY3ptQGPQRBhN2fpsf1T4EJ
+    private_key: d8b84b842f14eec74e388b870558772f3827e580
+
+

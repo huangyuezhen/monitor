@@ -1,0 +1,138 @@
+debug: False
+
+server:
+    port: 8888
+    log_path: /data/logs/monitor_center
+    run_path: /var/run/monitor_center
+
+db:
+    monitor_center:
+        dialect: mysql
+        driver: pymysql
+        username: remote_user
+        password: remote_passwd
+        host: 10.10.50.30
+        port: 3306
+        database: monitor_center
+        config:
+            encoding: utf8
+            pool_recycle: 3600
+            echo : False
+    local_zabbix:
+        dialect: mysql
+        driver: pymysql
+        username: devops
+        password: yunnex
+        host: 10.10.50.159
+        port: 3306
+        database: zabbix
+        config:
+            encoding: utf8
+            pool_recycle: 3600
+            echo : False
+
+cmdb:
+    url: http://cmdb.ops.yunnex.com/api
+    map:
+        host_status:
+            - id: -1
+              name: 全部
+            - id: 1
+              name: 正常
+            - id: 2
+              name: 异常
+            - id: 3
+              name: 下架
+            - id: 4
+              name: 未安装
+    token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmdWxsbmFtZSI6Ilx1OWVjNFx1NjcwOFx1NzNjZCIsInVzZXJuYW1lIjoiaHVhbmd5dWV6aGVuIiwiZW1haWwiOiJodWFuZ3l1ZXpoZW5AeXVubmV4LmNvbSIsInBob25lIjoiMTg4MjUwNTIzMjEiLCJkZXBhcnRtZW50X25hbWUiOlsiXHU4ZmQwXHU3ZWY0XHU1ZGU1XHU3YTBiXHU5MGU4Il19.6fqnHmjGezFEbuI_nMELjSpk3_zXNV8hYWhnb4XESY4"
+
+zabbix_api:
+    product:
+        host: zabbix.ops.yunnex.com
+        user: yunnex_guest
+        password: yunnex_guest@yunnex
+#    local:
+#        host: 10.10.50.159:4000
+#        user: Admin
+#        password: zabbix
+
+cmdb_to_zbxdb_env_map:
+    product: prd_zabbix
+
+zabbix_item_group_map:
+    default:
+        - system.cpu.util[,idle]
+        - system.cpu.util[,iowait]
+        - system.cpu.util[,user]
+        - vfs.fs.size[/,pfree]
+        - net.if.in[eth0]
+        - net.if.out[eth0]
+    zabbix server:
+        - zabbix[queue]
+        - zabbix[process,poller,avg,busy]
+
+token_secret: token_secret
+
+ldap:
+    ldap_server: 183.56.156.196
+#    baseDN: ou=研发部,ou=产研中心,ou=User,dc=yunnex,dc=com
+    baseDN: ou=User,dc=yunnex,dc=com
+    port: 389
+    user: cn=devops,ou=运维,ou=运维工程部,ou=研发部,ou=产研中心,ou=User,dc=yunnex,dc=com
+    password: GRjPXl1bm5
+
+ucloud:
+    url: https://api.ucloud.cn
+    public_key: ygsmZz5Vnxjs8Z1vnzU7TUc+TTY3ptQGPQRBhN2fpsf1T4EJ
+    private_key: d8b84b842f14eec74e388b870558772f3827e580
+
+crontab:
+    discovery_udb:
+        env: local
+        ignore_update: True  # 是否忽略更新 默认：是
+        clear_all_template: True  # 清除主机所有模板和历史 默认：不清除
+        clear_single_item_and_lld: True  # 清除主机所有单独的（不在模板内的）item和lld rule 默认：清除
+        keep_group: True  # 是否保留原有主机组 默认：是
+        agent_ip: 127.0.0.1
+        group_list:
+            - DB
+            - DB_UDB
+        mysql_udb_master_templates: 
+            - Template_Mysql_udb_system
+            - Template_MySQL_udb_master_cus
+        mysql_udb_slave_templates:
+            - Template_Mysql_udb_system
+            - Template_MySQL_udb_slave_cus
+
+    discovery_uredis:
+        env: local
+        agent_ip: 127.0.0.1
+        group_list:
+            - DB
+            - DB_UNOSQL
+        redis_templates:
+            -Template_URedis
+
+    discovery_udb_nosql:
+        env: local
+        agent_ip: 127.0.0.1
+        group_list:
+            - DB
+            - DB_UDB
+        umongodb_templates_master:
+           - Template_UMongoDb_master
+        umongodb_templates_slave:
+           - Template_UMongoDb_slave
+    discovery_ulb:
+        env: local
+        agent_ip: 127.0.0.1
+        group_list:
+            - ULB
+        ulb_templates:
+            - Template_ulb
+
+env:
+    product
+
+

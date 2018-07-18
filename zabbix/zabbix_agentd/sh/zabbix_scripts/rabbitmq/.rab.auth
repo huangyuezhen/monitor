@@ -1,0 +1,6 @@
+USERNAME=admin
+PASSWORD=i8BOuy1p9YoEXw64
+CONF=/data/conf/zabbix-agentd/zabbix_agentd.conf
+LOGLEVEL=INFO
+LOGFILE=/data/logs/zabbix-agentd/zabbix_rabbitmq.log
+PORT=12345

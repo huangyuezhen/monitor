@@ -1,0 +1,80 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+python.exe
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+script/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Pycharm
+.idea/
+
+# Tornado server settings
+logs/
+run/
+conf/local_settings.yml
+*.xlsx
+*.xls
+conf/script/_test.py
+conf/script/load_data_into_db.py
+/test/data/
+/test/ucloud/data/
+conf/script/load_init_data/data
+conf/cust_item_group/
+
+# vscode
+.vscode/
+.history/
+script/
+zabbix/ctrontab/logs
+zabbix/ctrontab/get_redis_host.py
+
